@@ -29,15 +29,33 @@ jobs:
         env:
           APP_ID: wxae849489ee6c1994
           SECRET: ${{secrets.KNEUNION_SECRET}}
-      - run: rm -rf ./website/mini-core && mkdir ./website/mini-core  cp -r ./qr-code ./website/mini-core
+      - run: rm -rf ./website/mini-core && mkdir ./website/mini-core && cp -r ./qr-code ./website/mini-core
       - run: rm -rf ./qr-code
       # 部署antd-taro 小程序二维码
       - run: npx @kne/miniprogram-tools qrcode
         env:
           APP_ID: wx66bb88142df0830e
           SECRET: ${{secrets.KNEUI_SECRET}}
-      - run: rm -rf ./website/antd-taro && mkdir ./website/antd-taro  cp -r ./qr-code ./website/antd-taro
+      - run: rm -rf ./website/antd-taro && mkdir ./website/antd-taro && cp -r ./qr-code ./website/antd-taro
       - run: rm -rf ./qr-code
+
+      # 部署博客
+      - uses: actions/checkout@v2
+        with:
+          repository: 'kne-union/blog'
+          ref: 'master'
+      - run: npx @kne/md-index
+      - run: cp -r ./build ./website/blog
+      - run: rm -rf ./build
+
+      # 部署工程化文档
+      - uses: actions/checkout@v2
+        with:
+          repository: 'kne-union/engineering'
+          ref: 'master'
+      - run: npx @kne/md-index
+      - run: cp -r ./build ./website/engineering
+      - run: rm -rf ./engineering
 
       - name: Deploy to GH Pages 🚀
         uses: peaceiris/actions-gh-pages@v3
