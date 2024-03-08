@@ -17,7 +17,6 @@ jobs:
       - run: npm install --legacy-peer-deps
       - run: npm run build-root
       - run: mkdir ./website
-      - run: ls
       - run: cp -r ./build/* ./website
       - run: rm -rf ./build
       # 部署manifest文件
@@ -25,6 +24,10 @@ jobs:
       - run: rm -rf ./website/ued-manifest && mkdir ./website/ued-manifest  && cp -r ./build/* ./website/ued-manifest
       - run: rm -rf ./build
       # 部署mini-core 小程序二维码
+      - uses: actions/checkout@v2
+        with:
+          repository: 'kne-union/mini-core'
+          ref: 'master'
       - run: npx @kne/miniprogram-tools qrcode
         env:
           APP_ID: wxae849489ee6c1994
@@ -32,6 +35,10 @@ jobs:
       - run: rm -rf ./website/mini-core && mkdir ./website/mini-core && cp -r ./qr-code ./website/mini-core
       - run: rm -rf ./qr-code
       # 部署antd-taro 小程序二维码
+      - uses: actions/checkout@v2
+        with:
+          repository: 'kne-union/antd-taro'
+          ref: 'master'
       - run: npx @kne/miniprogram-tools qrcode
         env:
           APP_ID: wx66bb88142df0830e
