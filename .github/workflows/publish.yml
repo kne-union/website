@@ -36,6 +36,7 @@ jobs:
       - run: rm -rf ./build/.github && rm -rf ./build/.gitignore && rm -rf ./build/.git
       - run: rm -rf ./website/engineering && mkdir -p ./website/engineering && cp -r ./build/* ./website/engineering
       - run: rm -rf ./build
+      - run: cd ./website && ls
 
       # 部署mini-core 小程序二维码
       - uses: actions/checkout@v4
@@ -48,6 +49,7 @@ jobs:
           SECRET: ${{secrets.KNEUNION_SECRET}}
       - run: rm -rf ./website/mini-core && mkdir -p ./website/mini-core && cp -r ./qr-code/* ./website/mini-core
       - run: rm -rf ./qr-code
+      - run: cd ./website && ls
 
       # 部署antd-taro 小程序二维码
       - uses: actions/checkout@v4
@@ -61,4 +63,4 @@ jobs:
       - run: rm -rf ./website/antd-taro && mkdir -p ./website/antd-taro && cp -r ./qr-code/* ./website/antd-taro
       - run: rm -rf ./qr-code
 
-      - run: cd ./website && ll
+      - run: cd ./website && ls
