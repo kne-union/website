@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Create Target Dir
-        run: mkdir website
+        run: mkdir ./website
 
       - name: Build Project ued
         uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
           ref: 'master'
       - run: npm install --legacy-peer-deps
       - run: npm run build-root
-      - run: mkdir ./website/ued && cp -r ./build/* ./website/ued
+      - run: cp -r ./build/* ./website
 
       - name: Deploy to GH Pages 🚀
         uses: peaceiris/actions-gh-pages@v3
