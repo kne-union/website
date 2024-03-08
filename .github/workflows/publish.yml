@@ -52,7 +52,7 @@ jobs:
           repository: 'kne-union/blog'
           ref: 'master'
       - run: npx @kne/md-index
-      - run: cp -r ./build ./website/blog
+      - run: rm -rf ./website/blog && mkdir -p ./website/blog && cp -r ./build ./website/blog
       - run: rm -rf ./build
 
       # 部署工程化文档
@@ -61,7 +61,7 @@ jobs:
           repository: 'kne-union/engineering'
           ref: 'master'
       - run: npx @kne/md-index
-      - run: cp -r ./build ./website/engineering
+      - run: rm -rf ./website/engineering && mkdir -p ./website/engineering && cp -r ./build ./website/engineering
       - run: rm -rf ./engineering
 
       - name: Deploy to GH Pages 🚀
