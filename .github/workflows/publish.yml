@@ -10,6 +10,45 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: 'kne-union/ued'
+          ref: 'master'
+      - run: npm install --legacy-peer-deps
+      - run: npm run build-root
+      - run: mkdir ./website
+      - run: cp -r ./build/* ./website
+      - run: rm -rf ./build
+
+      # 部署manifest文件
+      - run: npx @kne/ued-manifest
+      - run: rm -rf ./website/ued-manifest && mkdir -p ./website/ued-manifest  && cp -r ./build/* ./website/ued-manifest
+      - run: rm -rf ./build
+
+      # 部署mini-core 小程序二维码
+      - uses: actions/checkout@v2
+        with:
+          repository: 'kne-union/mini-core'
+          ref: 'master'
+      - run: npx @kne/miniprogram-tools qrcode
+        env:
+          APP_ID: wxae849489ee6c1994
+          SECRET: ${{secrets.KNEUNION_SECRET}}
+      - run: rm -rf ./website/mini-core && mkdir -p ./website/mini-core && cp -r ./qr-code ./website/mini-core
+      - run: rm -rf ./qr-code
+
+      # 部署antd-taro 小程序二维码
+      - uses: actions/checkout@v2
+        with:
+          repository: 'kne-union/antd-taro'
+          ref: 'master'
+      - run: npx @kne/miniprogram-tools qrcode
+        env:
+          APP_ID: wx66bb88142df0830e
+          SECRET: ${{secrets.KNEUI_SECRET}}
+      - run: rm -rf ./website/antd-taro && mkdir -p ./website/antd-taro && cp -r ./qr-code ./website/antd-taro
+      - run: rm -rf ./qr-code
+
       # 部署博客
       - uses: actions/checkout@v2
         with:
@@ -20,3 +59,18 @@ jobs:
       - run: rm -rf ./website/blog && mkdir -p ./website/blog && cp -r ./build ./website/blog
       - run: rm -rf ./build
 
+      # 部署工程化文档
+      - uses: actions/checkout@v2
+        with:
+          repository: 'kne-union/engineering'
+          ref: 'master'
+          path: ./build
+      - run: cd ./build && npx @kne/md-index
+      - run: rm -rf ./website/engineering && mkdir -p ./website/engineering && cp -r ./build ./website/engineering
+      - run: rm -rf ./build
+
+      - name: Deploy to GH Pages 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./website
