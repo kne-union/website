@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Create Target Dir
-        run: mkdir ./website
-
       - name: Build Project ued
         uses: actions/checkout@v2
         with:
@@ -20,6 +17,8 @@ jobs:
           ref: 'master'
       - run: npm install --legacy-peer-deps
       - run: npm run build-root
+      - run: mkdir ./website
+      - run: ls
       - run: cp -r ./build/* ./website
 
       - name: Deploy to GH Pages 🚀
