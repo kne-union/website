@@ -1,0 +1,29 @@
+name: Publish Website
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create Target Dir
+        run: mkdir website
+
+      - name: Build Project ued
+        uses: actions/checkout@v2
+        with:
+          repository: 'kne-union/ued'
+          ref: 'master'
+      - run: npm install --legacy-peer-deps
+      - run: npm run build-root
+      - run: mkdir ./website/ued && cp -r ./build/* ./website/ued
+
+      - name: Deploy to GH Pages 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./website
