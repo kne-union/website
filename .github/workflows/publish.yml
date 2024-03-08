@@ -21,7 +21,7 @@ jobs:
       - run: rm -rf ./build
       # 部署manifest文件
       - run: npx @kne/ued-manifest
-      - run: rm -rf ./website/ued-manifest && mkdir ./website/ued-manifest  && cp -r ./build/* ./website/ued-manifest
+      - run: rm -rf ./website/ued-manifest && mkdir -p ./website/ued-manifest  && cp -r ./build/* ./website/ued-manifest
       - run: rm -rf ./build
       # 部署mini-core 小程序二维码
       - uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
         env:
           APP_ID: wxae849489ee6c1994
           SECRET: ${{secrets.KNEUNION_SECRET}}
-      - run: rm -rf ./website/mini-core && mkdir ./website/mini-core && cp -r ./qr-code ./website/mini-core
+      - run: rm -rf ./website/mini-core && mkdir -p ./website/mini-core && cp -r ./qr-code ./website/mini-core
       - run: rm -rf ./qr-code
       # 部署antd-taro 小程序二维码
       - uses: actions/checkout@v2
@@ -43,7 +43,7 @@ jobs:
         env:
           APP_ID: wx66bb88142df0830e
           SECRET: ${{secrets.KNEUI_SECRET}}
-      - run: rm -rf ./website/antd-taro && mkdir ./website/antd-taro && cp -r ./qr-code ./website/antd-taro
+      - run: rm -rf ./website/antd-taro && mkdir -p ./website/antd-taro && cp -r ./qr-code ./website/antd-taro
       - run: rm -rf ./qr-code
 
       # 部署博客
