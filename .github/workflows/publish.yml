@@ -16,8 +16,7 @@ jobs:
       - run: mkdir ./website
       - run: cp -r ./build/* ./website
       - run: cd ./website && ls
-      - run: npx @kne/npm-tools latestVersion @kne-components/ued
-      - run: npx @kne/npm-tools latestVersion @kne-components/ued >> $VERSION
+      - run: echo "VERSION=${npx @kne/npm-tools latestVersion @kne-components/ued}" >> $GITHUB_ENV
       - run: echo "$VERSION"
       - run: cd ./website && export $VERSION  npx @kne/npm-tools entryHtml
         env:
