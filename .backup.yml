@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: 'kne-union/ued'
-          ref: 'master'
+          ref: 'gh-pages'
       - run: npm install --legacy-peer-deps
       - run: npm run build-root
       - run: mkdir ./website
@@ -30,50 +30,51 @@ jobs:
         with:
           repository: 'kne-union/blog'
           ref: 'master'
-          path: ./build
-      - run: cd ./build && npx @kne/md-index
-      - run: rm -rf ./build/.github && rm -rf ./build/.gitignore && rm -rf ./build/.git
-      - run: mkdir -p ./website/blog && cp -r ./build/* ./website/blog
-      - run: rm -rf ./build
+          path: ./checkout-dir
+      - run: cd ./checkout-dir && npx @kne/md-index
+      - run: rm -rf ./checkout-dir/.github && rm -rf ./checkout-dir/.gitignore && rm -rf ./checkout-dir/.git
+      - run: mkdir -p ./website/blog && cp -r ./checkout-dir/* ./website/blog
+      - run: rm -rf ./checkout-dir
 
       # 部署工程化文档
       - uses: actions/checkout@v4
         with:
           repository: 'kne-union/engineering'
           ref: 'master'
-          path: ./build
-      - run: cd ./build && npx @kne/md-index
-      - run: rm -rf ./build/.github && rm -rf ./build/.gitignore && rm -rf ./build/.git
-      - run: mkdir -p ./website/engineering && cp -r ./build/* ./website/engineering
-      - run: rm -rf ./build
+          path: ./checkout-dir
+      - run: cd ./checkout-dir && npx @kne/md-index
+      - run: rm -rf ./checkout-dir/.github && rm -rf ./checkout-dir/.gitignore && rm -rf ./checkout-dir/.git
+      - run: mkdir -p ./website/engineering && cp -r ./checkout-dir/* ./website/engineering
+      - run: rm -rf ./checkout-dir
 
       # 部署mini-core 小程序二维码
       - uses: actions/checkout@v4
         with:
           repository: 'kne-union/mini-core'
           ref: 'master'
-      - run: npx @kne/miniprogram-tools qrcode
+          path: ./checkout-dir
+      - run: cd ./checkout-dir && npx @kne/miniprogram-tools qrcode
         env:
           APP_ID: wxae849489ee6c1994
           SECRET: ${{secrets.KNEUNION_SECRET}}
-      - run: mkdir -p ./website/mini-core && cp -r ./qr-code/* ./website/mini-core
-      - run: rm -rf ./qr-code
+      - run: mkdir -p ./website/mini-core && cp -r ./checkout-dir/build/* ./website/mini-core
+      - run: rm -rf ./checkout-dir
 
       # 部署antd-taro 小程序二维码
       - uses: actions/checkout@v4
         with:
           repository: 'kne-union/antd-taro'
           ref: 'master'
-      - run: npx @kne/miniprogram-tools qrcode
+          path: ./checkout-dir
+      - run: cd ./checkout-dir && npx @kne/miniprogram-tools qrcode
         env:
           APP_ID: wx66bb88142df0830e
           SECRET: ${{secrets.KNEUI_SECRET}}
-      - run: mkdir -p ./website/antd-taro && cp -r ./qr-code/* ./website/antd-taro
-      - run: rm -rf ./qr-code
+      - run: mkdir -p ./website/antd-taro && cp -r ./checkout-dir/build/* ./website/antd-taro
+      - run: rm -rf ./checkout-dir
 
       - name: Deploy to GH Pages 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./website
-
