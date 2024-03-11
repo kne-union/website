@@ -16,11 +16,10 @@ jobs:
       - run: mkdir ./website
       - run: cp -r ./build/* ./website
       - run: cd ./website && ls
-      - run: echo "export MY_DYNAMIC_VARIABLE=$(@kne/npm-tools latestVersion @kne-components/ued)" >> $GITHUB_ENV
+      - run: npx @kne/npm-tools latestVersion @kne-components/ued | echo
       - run: cd ./website && export $VERSION  npx @kne/npm-tools entryHtml
         env:
           DEPLOY_URL: https://registry.npmmirror.com/@kne-components/{{APP_NAME}}/{{VERSION}}/files/build
           APP_NAME: ued
-          VERSION: ${{MY_DYNAMIC_VARIABLE}}
           INDEX_HTML_PATH: ./index.html
 
