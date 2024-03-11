@@ -16,7 +16,10 @@ jobs:
       - run: mkdir ./website
       - run: cp -r ./build/* ./website
       - run: cd ./website && ls
-      - run: npx @kne/npm-tools latestVersion @kne-components/ued | echo
+      - run: |
+          output=$(npx @kne/npm-tools latestVersion @kne-components/ued)
+          echo "MY_VARIABLE=$output"
+      - run: npx @kne/npm-tools latestVersion @kne-components/ued
       - run: cd ./website && export $VERSION  npx @kne/npm-tools entryHtml
         env:
           DEPLOY_URL: https://registry.npmmirror.com/@kne-components/{{APP_NAME}}/{{VERSION}}/files/build
