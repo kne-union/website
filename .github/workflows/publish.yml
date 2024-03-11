@@ -21,7 +21,7 @@ jobs:
         with:
           repository: 'kne-union/mini-core'
           ref: 'master'
-      - run: npx @kne/miniprogram-tools
+      - run: npx @kne/miniprogram-tools qrcode
         env:
           APP_ID: wxae849489ee6c1994
           SECRET: ${{secrets.KNEUNION_SECRET}}
