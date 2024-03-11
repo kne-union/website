@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: lastVersion = $(npx @kne/npm-tools latestVersion)
+      - run: lastVersion = $(npx @kne/npm-tools latestVersion @kne-components/ued)
       - run: echo `https://registry.npmmirror.com/@kne-components/ued/$lastVersion/files/build`
       - run: npx @kne/npm-tools download @kne-components/ued
         env:
