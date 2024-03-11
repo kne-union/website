@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo $(npx @kne/npm-tools latestVersion @kne-components/ued)
-      - run: $lastVersion = $(npx @kne/npm-tools latestVersion @kne-components/ued)
-      - run: echo `https://registry.npmmirror.com/@kne-components/ued/$lastVersion/files/build`
       - run: npx @kne/npm-tools download @kne-components/ued
         env:
           OUTPUT_PATH: ./
@@ -20,5 +17,7 @@ jobs:
       - run: cp -r ./build/* ./website
       - run: cd ./website && npx @kne/npm-tools entryHtml
         env:
-          DEPLOY_URL: https://registry.npmmirror.com/@kne-components/ued/$lastVersion/files/build
+          DEPLOY_URL: https://registry.npmmirror.com/@kne-components/{{APP_NAME}}/{{VERSION}}/files/build
+          APP_NAME: ued
+          VERSION: npx @kne/npm-tools latestVersion @kne-components/ued
 
