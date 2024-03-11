@@ -20,9 +20,10 @@ jobs:
           output=$(npx @kne/npm-tools latestVersion @kne-components/ued)
           echo "MY_VARIABLE=$output"
       - run: npx @kne/npm-tools latestVersion @kne-components/ued
-      - run: cd ./website && export $VERSION  npx @kne/npm-tools entryHtml
+      - run: cd ./website && npx @kne/npm-tools entryHtml
         env:
           DEPLOY_URL: https://registry.npmmirror.com/@kne-components/{{APP_NAME}}/{{VERSION}}/files/build
           APP_NAME: ued
+          VERSION: ${{$output}}
           INDEX_HTML_PATH: ./index.html
 
