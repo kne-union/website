@@ -21,6 +21,6 @@ jobs:
         env:
           DEPLOY_URL: https://registry.npmmirror.com/@kne-components/{{APP_NAME}}/{{VERSION}}/files/build
           APP_NAME: ued
-          VERSION: ${{$output}}
+          VERSION: ${{output}}
           INDEX_HTML_PATH: ./index.html
 
