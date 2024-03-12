@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunk_kne_components_ued=self.webpackChunk_kne_components_ued||[]).push([[923],{41923:(e,n,s)=>{s.r(n),s.d(n,{default:()=>a});var t=s(13050),o=s(70579);const a=(0,t.createWithRemoteLoader)({modules:["components-document:MarkdownPage"]})((e=>{let{remoteModules:n}=e;const[s]=n;return(0,o.jsx)(s,{name:"engineering",className:"md-content",baseUrl:"/engineering",assetsPath:"/engineering/assets"})}))}}]);
-//# sourceMappingURL=923.8c116931.chunk.js.map
