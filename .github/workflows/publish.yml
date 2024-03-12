@@ -17,7 +17,7 @@ jobs:
       - run: cp -r ./build/* ./website
       - run: cd ./website && ls
       - run: |
-          echo "action_state=$(npx @kne/npm-tools latestVersion @kne-components/ued)" >> "$GITHUB_ENV"
+          echo "action_state=$(npx @kne/npm-tools latestVersion @kne-components/ued | awk)" >> "$GITHUB_ENV"
       - run: echo $action_state
       - run: cd ./website && npx @kne/npm-tools entryHtml
         env:
