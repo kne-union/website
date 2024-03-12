@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_kne_components_ued=self.webpackChunk_kne_components_ued||[]).push([[0],{45e3:(e,s,t)=>{t.r(s),t.d(s,{default:()=>a});var o=t(13050),n=t(70579);const a=(0,o.createWithRemoteLoader)({modules:["components-document:MarkdownPage"]})((e=>{let{remoteModules:s}=e;const[t]=s;return(0,n.jsx)(t,{name:"blog",className:"md-content",baseUrl:"/blog",assetsPath:"/blog/assets"})}))}}]);
+//# sourceMappingURL=0.bffefa07.chunk.js.map
