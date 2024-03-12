@@ -24,7 +24,7 @@ jobs:
 
       # 部署manifest文件
       - run: npx @kne/ued-manifest
-      - run: mkdir -p ./website/ued-manifest  && cp -r ./build/* ./website/ued-manifest
+      - run: rm -rf ./website/ued-manifest && mkdir -p ./website/ued-manifest  && cp -r ./build/* ./website/ued-manifest
       - run: rm -rf ./build
 
       # 部署博客
@@ -35,7 +35,7 @@ jobs:
           path: ./checkout-dir
       - run: cd ./checkout-dir && npx @kne/md-index
       - run: rm -rf ./checkout-dir/.github && rm -rf ./checkout-dir/.gitignore && rm -rf ./checkout-dir/.git
-      - run: mkdir -p ./website/blog && cp -r ./checkout-dir/* ./website/blog
+      - run: rm -rf ./website/blog && mkdir -p ./website/blog && cp -r ./checkout-dir/* ./website/blog
       - run: rm -rf ./checkout-dir
 
       # 部署工程化文档
@@ -46,7 +46,7 @@ jobs:
           path: ./checkout-dir
       - run: cd ./checkout-dir && npx @kne/md-index
       - run: rm -rf ./checkout-dir/.github && rm -rf ./checkout-dir/.gitignore && rm -rf ./checkout-dir/.git
-      - run: mkdir -p ./website/engineering && cp -r ./checkout-dir/* ./website/engineering
+      - run: rm -rf ./website/engineering && mkdir -p ./website/engineering && cp -r ./checkout-dir/* ./website/engineering
       - run: rm -rf ./checkout-dir
 
       # 部署mini-core 小程序二维码
