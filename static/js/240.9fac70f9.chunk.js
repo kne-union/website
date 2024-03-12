@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_kne_components_ued=self.webpackChunk_kne_components_ued||[]).push([[240],{37240:(n,e,t)=>{t.r(e),t.d(e,{default:()=>u});const u=function(){for(var n=arguments.length,e=new Array(n),t=0;t<n;t++)e[t]=arguments[t];return 0===e.length?function(n){return n}:1===e.length?e[0]:e.reduce((function(n,e){return function(){return n(e.apply(void 0,arguments))}}))}}}]);
+//# sourceMappingURL=240.9fac70f9.chunk.js.map
