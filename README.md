@@ -1,1 +1,1 @@
-请访问 [https://ued.kne-union.site/](https://ued.kne-union.site/) 进入主页
+请访问 [https://www.kne-union.top/](https://www.kne-union.top/) 进入主页
