@@ -80,5 +80,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./website
-          cname: ued.kne-union.site
+          cname: www.kne-union.top
 
