@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_kne_components_ued=self.webpackChunk_kne_components_ued||[]).push([[923],{1923:(e,n,t)=>{t.r(n),t.d(n,{default:()=>o});var s=t(3050),a=t(579);const o=(0,s.createWithRemoteLoader)({modules:["components-document:MarkdownPage"]})((e=>{let{remoteModules:n}=e;const[t]=n;return(0,a.jsx)(t,{name:"engineering",url:"/static-data/engineering",contentClassName:"md-content",baseUrl:"/engineering",assetsPath:"/static-data/engineering/assets"})}))}}]);
+//# sourceMappingURL=923.3e8b98da.chunk.js.map
