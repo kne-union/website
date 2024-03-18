@@ -27,8 +27,9 @@ jobs:
           repository: 'kne-union/static-data'
           ref: 'master'
           path: ./checkout-dir
-      - run: cd ./checkout-dir && npx @kne/md-index
-      - run: rm -rf ./checkout-dir/.github && rm -rf ./checkout-dir/.gitignore && rm -rf ./checkout-dir/.git
+      - run: |
+          cd ./checkout-dir
+          rm -rf ./.github && rm -rf ./.gitignore && rm -rf ./.git
       - run: rm -rf ./website/static-data && mkdir -p ./website/static-data && cp -r ./checkout-dir/* ./website/static-data
       - run: rm -rf ./checkout-dir
 
