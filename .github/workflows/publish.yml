@@ -21,58 +21,15 @@ jobs:
           DEPLOY_URL: https://registry.npmmirror.com/@kne-components/{{APP_NAME}}/{{VERSION}}/files/build
           APP_NAME: ued
           INDEX_HTML_PATH: ./index.html
-
-      # 部署manifest文件
-      - run: npx @kne/ued-manifest
-      - run: rm -rf ./website/ued-manifest && mkdir -p ./website/ued-manifest  && cp -r ./build/* ./website/ued-manifest
-      - run: rm -rf ./build
-
-      # 部署博客
+      # 部署static data
       - uses: actions/checkout@v4
         with:
-          repository: 'kne-union/blog'
+          repository: 'kne-union/static-data'
           ref: 'master'
           path: ./checkout-dir
       - run: cd ./checkout-dir && npx @kne/md-index
       - run: rm -rf ./checkout-dir/.github && rm -rf ./checkout-dir/.gitignore && rm -rf ./checkout-dir/.git
-      - run: rm -rf ./website/blog && mkdir -p ./website/blog && cp -r ./checkout-dir/* ./website/blog
-      - run: rm -rf ./checkout-dir
-
-      # 部署工程化文档
-      - uses: actions/checkout@v4
-        with:
-          repository: 'kne-union/engineering'
-          ref: 'master'
-          path: ./checkout-dir
-      - run: cd ./checkout-dir && npx @kne/md-index
-      - run: rm -rf ./checkout-dir/.github && rm -rf ./checkout-dir/.gitignore && rm -rf ./checkout-dir/.git
-      - run: rm -rf ./website/engineering && mkdir -p ./website/engineering && cp -r ./checkout-dir/* ./website/engineering
-      - run: rm -rf ./checkout-dir
-
-      # 部署mini-core 小程序二维码
-      - uses: actions/checkout@v4
-        with:
-          repository: 'kne-union/mini-core'
-          ref: 'master'
-          path: ./checkout-dir
-      - run: cd ./checkout-dir && npx @kne/miniprogram-tools qrcode
-        env:
-          APP_ID: wxae849489ee6c1994
-          SECRET: ${{secrets.KNEUNION_SECRET}}
-      - run: mkdir -p ./website/mini-core && cp -r ./checkout-dir/build/* ./website/mini-core
-      - run: rm -rf ./checkout-dir
-
-      # 部署antd-taro 小程序二维码
-      - uses: actions/checkout@v4
-        with:
-          repository: 'kne-union/antd-taro'
-          ref: 'master'
-          path: ./checkout-dir
-      - run: cd ./checkout-dir && npx @kne/miniprogram-tools qrcode
-        env:
-          APP_ID: wx66bb88142df0830e
-          SECRET: ${{secrets.KNEUI_SECRET}}
-      - run: mkdir -p ./website/antd-taro && cp -r ./checkout-dir/build/* ./website/antd-taro
+      - run: rm -rf ./website/static-data && mkdir -p ./website/static-data && cp -r ./checkout-dir/* ./website/static-data
       - run: rm -rf ./checkout-dir
 
       - name: Deploy to GH Pages 🚀
