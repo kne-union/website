@@ -31,7 +31,8 @@
     "node-libs": [
       "@kne/fetch-npm-package",
       "@kne/load-npm-info",
-      "@kne/modules-dev"
+      "@kne/modules-dev",
+      "@kne/blog-maker"
     ],
     "miniprograms": [
       "@kne/mini-core",
