@@ -1,0 +1,724 @@
+<h1>为什么要建立这个系统</h1>
+<p>我们在工作协作中需要和其他人沟通，记录一些自己的想法，将工作中一些重要的事情格式化为标准的文档。</p>
+<p>我需要一个随时方便查看，可以支持多人协作编辑，表现力强的博客系统。这个系统必须使用简单，符合大家的使用习惯，已于和我们已有的技术框架结合。</p>
+<p>我使用了markdown语法来构建这个系统，并且在开源社区找到了不错的工具支持强大的表现力。通过git来管理整个文档，非常高效且简单。希望我和我的团队能从我的工作中受益。</p>
+<h1>基本使用流程</h1>
+<ul>
+<li>如果你不熟悉markdown语法，你可以使用marktext编辑器来编辑你的文档，下载地址:<a href="https://www.marktext.cc/">marktext</a></li>
+</ul>
+<h1>一些使用示例</h1>
+<h3>基本的markdown语法</h3>
+<blockquote>
+<p>标题</p>
+</blockquote>
+<pre class="hljs"><code><span class="hljs-section"># 这是一级标题</span>
+<span class="hljs-section">## 这是二级标题</span>
+<span class="hljs-section">### 这是三级标题</span>
+<span class="hljs-section">#### 这是四级标题</span>
+<span class="hljs-section">##### 这是五级标题</span>
+<span class="hljs-section">###### 这是六级标题</span>
+</code></pre>
+<h1>这是一级标题</h1>
+<h2>这是二级标题</h2>
+<h3>这是三级标题</h3>
+<h4>这是四级标题</h4>
+<h5>这是五级标题</h5>
+<h6>这是六级标题</h6>
+<blockquote>
+<p>字体</p>
+</blockquote>
+<pre class="hljs"><code><span class="hljs-strong">**这是加粗的文字**</span>
+<span class="hljs-emphasis">*这是倾斜的文字*</span>`
+<span class="hljs-strong">**<span class="hljs-emphasis">*这是斜体加粗的文字*</span>**</span>
+~~这是加删除线的文字~~
+</code></pre>
+<p><strong>这是加粗的文字</strong> <em>这是倾斜的文字</em>` <em><strong>这是斜体加粗的文字</strong></em> <s>这是加删除线的文字</s></p>
+<blockquote>
+<p>分割线</p>
+</blockquote>
+<pre class="hljs"><code><span class="hljs-section">---</span>
+----
+<span class="hljs-strong">***
+**</span><span class="hljs-strong">***
+</span></code></pre>
+<hr />
+<hr />
+<hr />
+<hr />
+<blockquote>
+<p>图片</p>
+</blockquote>
+<p><strong>注意：需要先放置在assets文件夹中才能引用</strong></p>
+<pre class="hljs"><code>![<span class="hljs-string">我是一张图片</span>](<span class="hljs-link">./assets/img.png</span>)
+</code></pre>
+<p><img src="../../assets/img.png" alt="我是一张图片" /></p>
+<p>也支持带有图片大小和对齐方式的图片写法</p>
+<pre class="hljs"><code><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./assets/img.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;300&quot;</span>&gt;</span></span>
+</code></pre>
+<img title src="../../assets/img.png" alt width="278" data-align="center">
+<blockquote>
+<p>超链接</p>
+</blockquote>
+<pre class="hljs"><code>[点击我跳转到百度](https://www.baidu.com)
+</code></pre>
+<p><a href="https://www.baidu.com">点击我跳转到百度</a></p>
+<blockquote>
+<p>列表</p>
+</blockquote>
+<pre class="hljs"><code><span class="hljs-bullet">*</span> 列表内容
+<span class="hljs-bullet">*</span> 列表内容
+<span class="hljs-bullet">*</span> 列表内容
+</code></pre>
+<ul>
+<li>列表内容</li>
+<li>列表内容</li>
+<li>列表内容</li>
+</ul>
+<blockquote>
+<p>带有数字的列表</p>
+</blockquote>
+<pre class="hljs"><code><span class="hljs-bullet">1.</span> 列表内容
+<span class="hljs-bullet">2.</span> 列表内容
+<span class="hljs-bullet">3.</span> 列表内容
+</code></pre>
+<ol>
+<li>列表内容</li>
+<li>列表内容</li>
+<li>列表</li>
+</ol>
+<blockquote>
+<p>引用块</p>
+</blockquote>
+<pre class="hljs"><code>&gt;这是引用的内容
+&gt;&gt;这是引用的内容
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容
+</code></pre>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>这是引用的</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>表格</p>
+</blockquote>
+<pre class="hljs"><code>| 表头  | 表头  | 表头  |
+| --- | --- | --- |
+| 内容  | 内容  | 内容  |
+| 内容  | 内容  | 内容  |
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容</td>
+<td>内容</td>
+<td>内容</td>
+</tr>
+<tr>
+<td>内容</td>
+<td>内容</td>
+<td>内容</td>
+</tr>
+</tbody>
+</table>
+<h3>高级功能</h3>
+<div style="font-size:18px;font-weight:bold;background:var(--primary-color);color:#FFF;padding: 4px 8px;border-radius: 2px;">TODO List</div>
+<p>TODO List 是扩展markdown的语法</p>
+<pre class="hljs"><code><span class="hljs-bullet">-</span> [x] 这是选中效果
+<span class="hljs-bullet">-</span> [x] 这是选中效果
+<span class="hljs-bullet">-</span> [x] 这是选中效果
+<span class="hljs-bullet">-</span> [ ] 这是未选中效果
+<span class="hljs-bullet">-</span> [ ] 这是未选中效果
+<span class="hljs-bullet">-</span> [ ] 这是未选中效果
+</code></pre>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 这是选中效果</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 这是选中效果</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 这是选中效果</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 这是未选中效果</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 这是未选中效果</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 这是未选中效果</li>
+</ul>
+<div style="font-size:18px;font-weight:bold;background:var(--primary-color);color:#FFF;padding: 4px 8px;border-radius: 2px;">HTML&#x652f;&#x6301;</div>
+<p>我们的文档支持html，你可以直接在文档里写html，可以被正确解析</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;padding: 20px;background: cornflowerblue;color:#FFF;margin: 20px;border-radius: 10px;text-align: center&quot;</span>&gt;</span>示例<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<div style="padding: 20px;background: cornflowerblue;color:#FFF;margin: 20px;border-radius: 10px;text-align: center">&#x793a;&#x4f8b;</div>
+<div style="font-size:18px;font-weight:bold;background:var(--primary-color);color:#FFF;padding: 4px 8px;border-radius: 2px;">mermaid</div>
+<p>Mermaid 是一种基于 JavaScript 的图表绘制工具，它使用受 Markdown 启发的文本定义和渲染器来创建和修改复杂的图表。Mermaid 的主要目的是帮助文档跟上开发的步伐。</p>
+<p><img src="../../assets/header.png" alt="图片" /></p>
+<blockquote>
+<p>流程图</p>
+</blockquote>
+<pre class="hljs"><code>flowchart LR
+<span class="hljs-code">    A[Hard] --&gt;|Text| B(Round)
+    B --&gt; C{Decision}
+    C --&gt;|One| D[Result 1]
+    C --&gt;|Two| E[Result 2]
+</span></code></pre>
+<img class="md-render" src="../../assets/1ba50869e644d307b849e77d2350196b.svg" alt="mermaid" /><blockquote>
+<p>竖向流程图</p>
+</blockquote>
+<pre class="hljs"><code>flowchart TD
+<span class="hljs-code">    A[Start] --&gt; B{Is it?}
+    B -- Yes --&gt; C[OK]
+    C --&gt; D[Rethink]
+    D --&gt; B
+    B -- No ----&gt; E[End]
+</span></code></pre>
+<img class="md-render" src="../../assets/c63ca302b63a46ef74d98d763f6f2efb.svg" alt="mermaid" /><blockquote>
+<p>时序图</p>
+</blockquote>
+<pre class="hljs"><code>sequenceDiagram
+    Alice-&gt;&gt;John: Hello John, how are you?
+    John--&gt;&gt;Alice: Great!
+    Alice-)John: See you later!
+</code></pre>
+<img class="md-render" src="../../assets/cb0f65ec6dae7d1f8e9e7de5e85539fc.svg" alt="mermaid" /><blockquote>
+<p>类图</p>
+</blockquote>
+<pre class="hljs"><code>---
+<span class="hljs-section">title: Animal example
+---</span>
+classDiagram
+<span class="hljs-code">    note &quot;From Duck till Zebra&quot;
+    Animal &lt;|-- Duck
+    note for Duck &quot;can fly\ncan swim\ncan dive\ncan help in debugging&quot;
+    Animal &lt;|-- Fish
+    Animal &lt;|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+        +String beakColor
+        +swim()
+        +quack()
+    }
+    class Fish{
+        -int sizeInFeet
+        -canEat()
+    }
+    class Zebra{
+        +bool is_wild
+        +run()
+    }
+</span></code></pre>
+<img class="md-render" src="../../assets/3344fdc2e8a548350d520d7db2fb2a92.svg" alt="mermaid" /><blockquote>
+<p>状态图</p>
+</blockquote>
+<pre class="hljs"><code>---
+<span class="hljs-section">title: Simple sample
+---</span>
+stateDiagram-v2
+<span class="hljs-code">    [*] --&gt; Still
+    Still --&gt; [*]
+</span>
+<span class="hljs-code">    Still --&gt; Moving
+    Moving --&gt; Still
+    Moving --&gt; Crash
+    Crash --&gt; [*]
+</span></code></pre>
+<img class="md-render" src="../../assets/eeacf968013a0d46d262fb7acdb46069.svg" alt="mermaid" /><blockquote>
+<p>甘特图</p>
+</blockquote>
+<pre class="hljs"><code>gantt
+<span class="hljs-code">    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2014-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2014-01-12  , 12d
+    another task      : 24d
+</span></code></pre>
+<img class="md-render" src="../../assets/dabe2a36c04e6d879b54592f5a800443.svg" alt="mermaid" /><blockquote>
+<p>饼图</p>
+</blockquote>
+<pre class="hljs"><code>pie title Pets adopted by volunteers
+<span class="hljs-code">    &quot;Dogs&quot; : 386
+    &quot;Cats&quot; : 85
+    &quot;Rats&quot; : 15
+</span></code></pre>
+<img class="md-render" src="../../assets/997c1d7fa69779b60620853ba73d773f.svg" alt="mermaid" /><blockquote>
+<p>Timeline</p>
+</blockquote>
+<pre class="hljs"><code>timeline
+<span class="hljs-code">    title History of Social Media Platform
+    2002 : LinkedIn
+    2004 : Facebook
+         : Google
+    2005 : Youtube
+    2006 : Twitter
+</span></code></pre>
+<img class="md-render" src="../../assets/4298e039aa89a7de9a65a309a140da75.svg" alt="mermaid" /><blockquote>
+<p>思维导图</p>
+</blockquote>
+<pre class="hljs"><code>mindmap
+  root((mindmap))
+<span class="hljs-code">    Origins
+      Long history
+      ::icon(fa fa-book)
+      Popularisation
+        British popular psychology author Tony Buzan
+    Research
+      On effectiveness&lt;br/&gt;and features
+      On Automatic creation
+        Uses
+            Creative techniques
+            Strategic planning
+            Argument mapping
+    Tools
+      Pen and paper
+      Mermaid
+</span></code></pre>
+<img class="md-render" src="../../assets/ac495070e03bb23b88a1d257d1183c6a.svg" alt="mermaid" /><p>更多用法请参考<a href="https://mermaid.js.org/">mermaid官网</a></p>
+<div style="font-size:18px;font-weight:bold;background:var(--primary-color);color:#FFF;padding: 4px 8px;border-radius: 2px;">plantuml</div>
+<p><strong>PlantUML</strong>是一个允许你快速编写的组件：</p>
+<ul>
+<li><a href="https://plantuml.com/zh/sequence-diagram">序列图</a></li>
+<li><a href="https://plantuml.com/zh/use-case-diagram">用例图</a></li>
+<li><a href="https://plantuml.com/zh/class-diagram">类图</a></li>
+<li><a href="https://plantuml.com/zh/object-diagram">对象图</a></li>
+<li><a href="https://plantuml.com/zh/activity-diagram-beta">活动图</a>（这里是<a href="https://plantuml.com/zh/activity-diagram-legacy">传统的语法</a>）。</li>
+<li><a href="https://plantuml.com/zh/component-diagram">组件图</a></li>
+<li><a href="https://plantuml.com/zh/deployment-diagram">部署图</a></li>
+<li><a href="https://plantuml.com/zh/state-diagram">状态图</a></li>
+<li><a href="https://plantuml.com/zh/timing-diagram">时序图</a></li>
+</ul>
+<p>也支持以下非UML图表：</p>
+<ul>
+<li><a href="https://plantuml.com/zh/json">JSON数据</a></li>
+<li><a href="https://plantuml.com/zh/yaml">YAML数据</a></li>
+<li><a href="https://plantuml.com/zh/ebnf">Extended Backus-Naur Form (EBNF)图表</a></li>
+<li><a href="https://plantuml.com/zh/nwdiag">网络图（nwdiag）</a></li>
+<li><a href="https://plantuml.com/zh/salt">线框图形界面或UI模拟图（盐）。</a></li>
+<li><a href="https://plantuml.com/zh/archimate-diagram">架构图</a></li>
+<li><a href="https://plantuml.com/zh/activity-diagram-beta#sdl">规范和描述语言（SDL）</a></li>
+<li><a href="https://plantuml.com/zh/ditaa">Ditaa图</a></li>
+<li><a href="https://plantuml.com/zh/gantt-diagram">甘特图</a></li>
+<li><a href="https://plantuml.com/zh/mindmap-diagram">思维导图</a></li>
+<li><a href="https://plantuml.com/zh/wbs-diagram">工作分解结构图（WBS）</a></li>
+<li><a href="https://plantuml.com/zh/ascii-math">用AsciiMath或JLaTeXMath符号进行数学计算</a></li>
+<li><a href="https://plantuml.com/zh/ie-diagram">实体关系图（IE/ER）。</a></li>
+</ul>
+<p>此外：</p>
+<ul>
+<li><a href="https://plantuml.com/zh/link">超链接和工具提示</a></li>
+<li><a href="https://plantuml.com/zh/creole">克里奥尔语</a>：富文本、表情符号、unicode、图标</li>
+<li><a href="https://plantuml.com/zh/openiconic">OpenIconic图标</a></li>
+<li><a href="https://plantuml.com/zh/sprite">Sprite图标</a></li>
+<li><a href="https://plantuml.com/zh/ascii-math">AsciiMath数学表达式</a></li>
+</ul>
+<p>图形是用一种简单直观的语言定义的。</p>
+<blockquote>
+<p>序列图</p>
+</blockquote>
+<pre class="hljs"><code>@startuml
+participant Alice
+participant &quot;The <span class="hljs-strong">**Famous**</span> Bob&quot; as Bob
+
+Alice -&gt; Bob : hello --there--
+... Some ~~long delay~~ ...
+Bob -&gt; Alice : ok
+note left
+  This is <span class="hljs-strong">**bold**</span>
+  This is //italics//
+  This is &quot;&quot;monospaced&quot;&quot;
+  This is --stroked--
+  This is <span class="hljs-strong">__underlined__</span>
+  This is ~~waved~~
+end note
+
+Alice -&gt; Bob : A //well formatted// message
+note right of Alice
+ This is <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">back:cadetblue</span>&gt;</span></span><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">size:18</span>&gt;</span></span>displayed<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">size</span>&gt;</span></span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">back</span>&gt;</span></span>
+ <span class="hljs-strong">__left of__</span> Alice.
+end note
+note left of Bob
+ <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">u:red</span>&gt;</span></span>This<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">u</span>&gt;</span></span> is <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">color</span> #<span class="hljs-attr">118888</span>&gt;</span></span>displayed<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">color</span>&gt;</span></span>
+ <span class="hljs-strong">**<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">color</span> <span class="hljs-attr">purple</span>&gt;</span></span>left of<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">color</span>&gt;</span></span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">s:red</span>&gt;</span></span>Alice<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">strike</span>&gt;</span></span> Bob**</span>.
+end note
+note over Alice, Bob
+ <span class="language-xml">&lt;w:#FF33FF&gt;</span>This is hosted<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">w</span>&gt;</span></span> by <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">sourceforge.jpg</span>&gt;</span></span>
+end note
+@enduml
+</code></pre>
+<img class="md-render" src="../../assets/10b8bd17557e862b1feb41451a1f5bd1.svg" alt="plantuml" /><blockquote>
+<p>用例图</p>
+</blockquote>
+<pre class="hljs"><code>@startuml
+:Main Admin: as Admin
+(Use the application) as (Use)
+
+User -&gt; (Start)
+User --&gt; (Use)
+
+Admin ---&gt; (Use)
+
+note right of Admin : This is an example.
+
+note right of (Use)
+  A note can also
+  be on several lines
+end note
+
+note &quot;This note is connected\nto several objects.&quot; as N2
+(Start) .. N2
+N2 .. (Use)
+@enduml
+</code></pre>
+<img class="md-render" src="../../assets/c3b14e5062a68a600a5145d5e2408c1c.svg" alt="plantuml" /><blockquote>
+<p>类图</p>
+</blockquote>
+<pre class="hljs"><code>@startuml
+class A {
+{static} int counter
++void {abstract} start(int timeout)
+}
+note left of A::counter
+  该成员已注释
+end note
+note right of A::start
+  在 UML 注释了此方法
+end note
+@enduml
+</code></pre>
+<img class="md-render" src="../../assets/aaf9eda6324910f64a2cf8d034b58ba4.svg" alt="plantuml" /><blockquote>
+<p>对象图</p>
+</blockquote>
+<pre class="hljs"><code>@startuml
+object London
+object Washington
+object Berlin
+object NewYork
+
+map CapitalCity {
+ UK <span class="hljs-emphasis">*-&gt; London
+ USA *</span>--&gt; Washington
+ Germany <span class="hljs-emphasis">*---&gt; Berlin
+}
+
+NewYork --&gt; CapitalCity::USA
+@enduml
+</span></code></pre>
+<img class="md-render" src="../../assets/0a3f42f256ac66ed6127d2ea65b2f437.svg" alt="plantuml" /><blockquote>
+<p>流程图</p>
+</blockquote>
+<pre class="hljs"><code>@startuml
+start
+repeat
+  :测试某事;
+<span class="hljs-code">    if (发生错误?) then (没有)
+      #palegreen:好的;
+      break
+    endif
+    -&gt;not ok;
+    :弹窗 &quot;文本过长错误&quot;;
+repeat while (某事发生文本过长错误?) is (是的) not (不是)
+-&gt;//合并步骤//;
+:弹窗 &quot;成功！&quot;;
+stop
+@enduml
+</span></code></pre>
+<img class="md-render" src="../../assets/4d9b785de70e78c228c79488cfc929e5.svg" alt="plantuml" /><blockquote>
+<p>组件图</p>
+</blockquote>
+<pre class="hljs"><code>@startuml
+package &quot;Some Group&quot; {
+  HTTP - [First Component]
+  [Another Component]
+}
+
+node &quot;Other Groups&quot; {
+  FTP - [Second Component]
+  [First Component] --&gt; FTP
+}
+
+cloud {
+  [Example 1]
+}
+
+
+database &quot;MySql&quot; {
+  folder &quot;This is my folder&quot; {
+<span class="hljs-code">    [Folder 3]
+  }
+  frame &quot;Foo&quot; {
+    [Frame 4]
+  }
+}
+</span>
+
+[Another Component] --&gt; [Example 1]
+[Example 1] --&gt; [Folder 3]
+[Folder 3] --&gt; [Frame 4]
+@enduml
+</code></pre>
+<img class="md-render" src="../../assets/99bbe27d5faadf545942fbc4e6b76743.svg" alt="plantuml" /><blockquote>
+<p>时序图</p>
+</blockquote>
+<pre class="hljs"><code>@startuml
+clock   &quot;Clock<span class="hljs-emphasis">_0&quot;   as C0 with period 50
+clock   &quot;Clock_</span>1&quot;   as C1 with period 50 pulse 15 offset 10
+binary  &quot;Binary&quot;  as B
+concise &quot;Concise&quot; as C
+robust  &quot;Robust&quot;  as R
+analog  &quot;Analog&quot;  as A
+
+
+@0
+C is Idle
+R is Idle
+A is 0
+
+@100
+B is high
+C is Waiting
+R is Processing
+A is 3
+
+@300
+R is Waiting
+A is 1
+@enduml
+</code></pre>
+<img class="md-render" src="../../assets/9f439fde8038e4ad300125b115b85536.svg" alt="plantuml" /><blockquote>
+<p>状态图</p>
+</blockquote>
+<pre class="hljs"><code>@startuml
+scale 350 width
+[<span class="hljs-emphasis">*] --&gt; NotShooting
+
+state NotShooting {
+  [*</span>] --&gt; Idle
+  Idle --&gt; Configuring : EvConfig
+  Configuring --&gt; Idle : EvConfig
+}
+
+state Configuring {
+  [<span class="hljs-emphasis">*] --&gt; NewValueSelection
+  NewValueSelection --&gt; NewValuePreview : EvNewValue
+  NewValuePreview --&gt; NewValueSelection : EvNewValueRejected
+  NewValuePreview --&gt; NewValueSelection : EvNewValueSaved
+
+  state NewValuePreview {
+     State1 -&gt; State2
+  }
+
+}
+@enduml
+</span></code></pre>
+<img class="md-render" src="../../assets/f79a568719fce5a63e32e093ff05dc5e.svg" alt="plantuml" /><blockquote>
+<p>JSON展示</p>
+</blockquote>
+<pre class="hljs"><code>@startjson
+{
+  &quot;firstName&quot;: &quot;John&quot;,
+  &quot;lastName&quot;: &quot;Smith&quot;,
+  &quot;isAlive&quot;: true,
+  &quot;age&quot;: 27,
+  &quot;address&quot;: {
+<span class="hljs-code">    &quot;streetAddress&quot;: &quot;21 2nd Street&quot;,
+    &quot;city&quot;: &quot;New York&quot;,
+    &quot;state&quot;: &quot;NY&quot;,
+    &quot;postalCode&quot;: &quot;10021-3100&quot;
+  },
+  &quot;phoneNumbers&quot;: [
+    {
+      &quot;type&quot;: &quot;home&quot;,
+      &quot;number&quot;: &quot;212 555-1234&quot;
+    },
+    {
+      &quot;type&quot;: &quot;office&quot;,
+      &quot;number&quot;: &quot;646 555-4567&quot;
+    }
+  ],
+  &quot;children&quot;: [],
+  &quot;spouse&quot;: null
+}
+@endjson
+</span></code></pre>
+<img class="md-render" src="../../assets/e6b64e945ea87b51833fe455c501bac3.svg" alt="plantuml" /><blockquote>
+<p>YML展示</p>
+</blockquote>
+<pre class="hljs"><code>@startyaml
+doe: &quot;a deer, a female deer&quot;
+ray: &quot;a drop of golden sun&quot;
+pi: 3.14159
+xmas: true
+french-hens: 3
+calling-birds: 
+<span class="hljs-bullet">    -</span> huey
+<span class="hljs-bullet">    -</span> dewey
+<span class="hljs-bullet">    -</span> louie
+<span class="hljs-bullet">    -</span> fred
+xmas-fifth-day: 
+<span class="hljs-code">    calling-birds: four
+    french-hens: 3
+    golden-rings: 5
+    partridges: 
+        count: 1
+        location: &quot;a pear tree&quot;
+    turtle-doves: two
+@endyaml
+</span></code></pre>
+<img class="md-render" src="../../assets/9659d87b44fcf642dbc977ede8faa1dc.svg" alt="plantuml" /><blockquote>
+<p>思维导图</p>
+</blockquote>
+<pre class="hljs"><code>@startmindmap
+<span class="hljs-bullet">*</span> Debian
+** Ubuntu
+<span class="hljs-strong">*** Linux Mint
+**</span>* Kubuntu
+<span class="hljs-strong">*** Lubuntu
+**</span>* KDE Neon
+** LMDE
+** SolydXK
+** SteamOS
+** Raspbian with a very long name
+<span class="hljs-strong">*** <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">s</span>&gt;</span></span>Raspmbc<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">s</span>&gt;</span></span> =&gt; OSMC
+**</span>* <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">s</span>&gt;</span></span>Raspyfi<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">s</span>&gt;</span></span> =&gt; Volumio
+@endmindmap
+</code></pre>
+<img class="md-render" src="../../assets/5d28dcbf58f35c9360b67171c67e8a96.svg" alt="plantuml" /><blockquote>
+<p>甘特图</p>
+</blockquote>
+<pre class="hljs"><code>@startgantt
+printscale weekly
+saturday are closed
+sunday are closed
+
+Project starts the 1st of january 2021
+[Prototype design end] as [TASK1] lasts 19 days
+[TASK1] is colored in Lavender/LightBlue
+[Testing] lasts 14 days
+[TASK1]-&gt;[Testing]
+
+2021-01-18 to 2021-01-22 are named [End&#x27;s committee]
+2021-01-18 to 2021-01-22 are colored in salmon 
+@endgantt
+</code></pre>
+<img class="md-render" src="../../assets/fe3100ea1c8040674536b717d9ddf565.svg" alt="plantuml" /><blockquote>
+<p>EBNF</p>
+</blockquote>
+<pre class="hljs"><code>@startebnf
+title All EBNF elements managed by PlantUML
+
+(* Nodes <span class="hljs-emphasis">*)
+litteral = &quot;a&quot;;
+special = ? a ?;
+rule = a;
+
+(*</span> Edges <span class="hljs-emphasis">*)
+required = a;
+optional = [a];
+
+zero_or_more = {a};
+one_or_more = a, {a};
+one_or_more_ebnf = {a}-;
+
+zero_or_more_with_separator = [a, {&#x27;,&#x27;, a}];
+one_or_more_with_separator = a, {&#x27;,&#x27;, a};
+zero_or_more_with_terminator = {a, &#x27;,&#x27;};
+one_or_more_with_terminator = a, &#x27;,&#x27;, {a, &#x27;,&#x27;};
+one_or_more_with_terminator_ebnf = {a, &#x27;,&#x27;}-;
+
+alternative = a | b;
+group = (a | b) , c;
+without_group = a | b , c;
+@endebnf
+</span></code></pre>
+<img class="md-render" src="../../assets/49b1a42ef6745846a5dcc63332dd6073.svg" alt="plantuml" /><blockquote>
+<p>架构图</p>
+</blockquote>
+<pre class="hljs"><code>@startuml
+skinparam rectangle&lt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">behavior</span>&gt;</span></span>&gt; {
+<span class="hljs-code">    roundCorner 25
+}
+sprite $bProcess jar:archimate/business-process
+sprite $aService jar:archimate/application-service
+sprite $aComponent jar:archimate/application-component
+</span>
+rectangle &quot;Handle claim&quot;  as HC &lt;&lt;$bProcess&gt;&gt;&lt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">behavior</span>&gt;</span></span>&gt; #Business
+rectangle &quot;Capture Information&quot;  as CI &lt;&lt;$bProcess&gt;&gt;&lt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">behavior</span>&gt;</span></span>&gt; #Business
+rectangle &quot;Notify\nAdditional Stakeholders&quot; as NAS &lt;&lt;$bProcess&gt;&gt;&lt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">behavior</span>&gt;</span></span>&gt; #Business
+rectangle &quot;Validate&quot; as V &lt;&lt;$bProcess&gt;&gt;&lt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">behavior</span>&gt;</span></span>&gt; #Business
+rectangle &quot;Investigate&quot; as I &lt;&lt;$bProcess&gt;&gt;&lt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">behavior</span>&gt;</span></span>&gt; #Business
+rectangle &quot;Pay&quot; as P &lt;&lt;$bProcess&gt;&gt;&lt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">behavior</span>&gt;</span></span>&gt; #Business
+
+HC <span class="hljs-emphasis">*-down- CI
+HC *</span>-down- NAS
+HC <span class="hljs-emphasis">*-down- V
+HC *</span>-down- I
+HC <span class="hljs-emphasis">*-down- P
+
+CI -right-&gt;&gt; NAS
+NAS -right-&gt;&gt; V
+V -right-&gt;&gt; I
+I -right-&gt;&gt; P
+
+rectangle &quot;Scanning&quot; as scanning &lt;&lt;$aService&gt;&gt;&lt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">behavior</span>&gt;</span></span>&gt; #Application
+rectangle &quot;Customer admnistration&quot; as customerAdministration &lt;&lt;$aService&gt;&gt;&lt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">behavior</span>&gt;</span></span>&gt; #Application
+rectangle &quot;Claims admnistration&quot; as claimsAdministration &lt;&lt;$aService&gt;&gt;&lt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">behavior</span>&gt;</span></span>&gt; #Application
+rectangle Printing &lt;&lt;$aService&gt;&gt;&lt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">behavior</span>&gt;</span></span>&gt; #Application
+rectangle Payment &lt;&lt;$aService&gt;&gt;&lt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">behavior</span>&gt;</span></span>&gt; #Application
+
+scanning -up-&gt; CI
+customerAdministration  -up-&gt; CI
+claimsAdministration -up-&gt; NAS
+claimsAdministration -up-&gt; V
+claimsAdministration -up-&gt; I
+Payment -up-&gt; P
+
+Printing -up-&gt; V
+Printing -up-&gt; P
+
+rectangle &quot;Document\nManagement\nSystem&quot; as DMS &lt;&lt;$aComponent&gt;&gt; #Application
+rectangle &quot;General\nCRM\nSystem&quot; as CRM &lt;&lt;$aComponent&gt;&gt;  #Application
+rectangle &quot;Home &amp; Away\nPolicy\nAdministration&quot; as HAPA &lt;&lt;$aComponent&gt;&gt; #Application
+rectangle &quot;Home &amp; Away\nFinancial\nAdministration&quot; as HFPA &lt;&lt;$aComponent&gt;&gt;  #Application
+
+DMS .up.|&gt; scanning
+DMS .up.|&gt; Printing
+CRM .up.|&gt; customerAdministration
+HAPA .up.|&gt; claimsAdministration
+HFPA .up.|&gt; Payment
+
+legend left
+Example from the &quot;Archisurance case study&quot; (OpenGroup).
+See
+====
+&lt;$bProcess&gt; :business process
+====
+&lt;$aService&gt; : application service
+====
+&lt;$aComponent&gt; : application component
+endlegend
+@enduml
+</span></code></pre>
+<img class="md-render" src="../../assets/2668450aea6d1058570901b3a08ea9b7.svg" alt="plantuml" />

@@ -1,0 +1,23 @@
+<p>在KneUnion中托管的项目目前可以分为3种：</p>
+<ol>
+<li>npm package，它需要在提交新的修改时向npm发布新的版本，并且为了npmmirror源可以立即使用，需要执行当前包的同步操作。</li>
+<li>remote components，它需要执行build构建之后将结果发布到GitHub pages，还需要发布到npm以同步到cdn。</li>
+<li>日志类型内容，需要在提交修改后生成索引文件，然后发布到Github pages。</li>
+</ol>
+<p>之前，我通过github actions完成了上述操作，但是存在以下的问题：</p>
+<ul>
+<li>之前的actions脚本是放在自己项目中的，actions如果想要升级，需要每个项目改一遍。</li>
+<li>为了ued项目能访问到每个项目的构建结果，每个项目都得搞一个Github pages，当需要把ued项目部署到其他服务器或者cdn，需要从各个项目拉gh-pages代码进行部署，而且很难只管地看见ued项目需求哪些项目的构建后代码。</li>
+</ul>
+<p>接下来我开始构思改造工作，首先，我想先创建一个项目，专门用来放置其他项目产生的数据，可以由其他项目的action向该项目推送执行结果，其他除ued之外的项目不需要自己配置gh-pages。然后通过GitHub action的reused workflow和自定义action来完成所有类型的构建工作。</p>
+<p>首先，将现有项目重新分为以下类型:</p>
+<img class="md-render" src="../../assets/23966f784b518075de68cc3cb551bba3.svg" alt="plantuml" /><p>然后设计出没从类型的构建过程：</p>
+<p>nodejs: 不需要构建的npm package</p>
+<img class="md-render" src="../../assets/fb0d4978cea3d9e0abcf25d00759b1dc.svg" alt="plantuml" /><p>libs：需要构建的npm package，示例需要自动发布到ued</p>
+<img class="md-render" src="../../assets/399e95a5e809328fe3380ca7a1c8c25c.svg" alt="plantuml" /><p>remote-components: 远程组件项目，需要构建，示例自动发布到ued</p>
+<img class="md-render" src="../../assets/06657201cfedeca6cb11d10d84e2dd8c.svg" alt="plantuml" /><p>remote-project：ued为一个典型的remote-project项目</p>
+<img class="md-render" src="../../assets/b7f6319571bba021a9612df6c3a43ff7.svg" alt="plantuml" /><p>content: 管理内容的项目，比如blog项目</p>
+<img class="md-render" src="../../assets/6af9f3a110eb6b0c1e2f9c905941e609.svg" alt="plantuml" /><p>miniprogram-libs：小程序组件库，需要构建并且示例自动发布到ued</p>
+<img class="md-render" src="../../assets/1508931b5048d5e8d3a06c20558ee428.svg" alt="plantuml" /><p>设计完所有的构建过程之后，将公共部分分别实现，然后将所有workflow发布到<a href="https://github.com/kne-union/actions">actions项目</a>中</p>
+<p>然后实现不同类型的脚手架模板，让其中的actions workflow引用 actions项目中对应项目的workflow实现</p>
+<p>当对应类型的actions需要更新时，只需要集中在actions项目维护就可以做到整个系统的所有项目的同步升级</p>
