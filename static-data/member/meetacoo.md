@@ -5,7 +5,7 @@
     <div style="color: white">
         <div><strong>姓名：</strong>Meetacoo</div>
         <div><strong>邮箱：</strong>2283785225@qq.com</div>
-        <div><strong>个人简介：</strong>爱吃饭，爱逛街，爱一切形式的毛爷爷，一个中国血脉觉醒的爱黄金的Beauty</div>
+        <div><strong>个人简介：</strong>敢想敢做敢拼，爱工作爱生活，爱Beauty。</div>
     </div>
 </div>
 
@@ -16,6 +16,16 @@
 ## 职业目标
 
 做好前端开发工程师的工作，将我的技能和激情投入到有挑战性的项目中。
+
+---
+
+## 小小贡献
+
+在ant-design和ant-design-mobile上有一点点的小贡献。
+<div>
+  <img title="" src="./assets/meetacoo-ant-design.png" alt="">
+  <img title="" src="./assets/meetacoo-ant-design-mobile.png" alt="">
+</div>
 
 ---
 
@@ -48,6 +58,7 @@
 
 - **吃** 爱好尝试各种美食，特别是喜欢尝试不同地区的特色小吃
 - **喝** 最喜欢白开水了呢
-- **读书** 闲暇时间喜欢阅读技术和小说类书籍，保持对知识的持续学习
+
+[//]: # (- **读书** 闲暇时间喜欢阅读技术和小说类书籍，保持对知识的持续学习)
 
 <div style="text-align: right">*以上介绍由AI生成</div>
