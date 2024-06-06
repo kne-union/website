@@ -18,7 +18,7 @@ jobs:
       - run: echo "VERSION=$(npx @kne/npm-tools latestVersion @kne-components/ued | tail -1)" >> "$GITHUB_ENV"
       - run: cd ./website && npx @kne/npm-tools entryHtml
         env:
-          DEPLOY_URL: https://unpkg.com/@kne-components/{{APP_NAME}}@{{VERSION}}/build
+          DEPLOY_URL: https://uc.fatalent.cn/packages/@kne-components/{{APP_NAME}}/{{VERSION}}/build
           APP_NAME: ued
           INDEX_HTML_PATH: ./index.html
       # 部署static data
