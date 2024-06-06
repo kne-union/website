@@ -43,6 +43,8 @@
     "miniprograms": [
       "@kne/mini-core",
       "@kne/antd-taro"
-    ]
+    ],
+    "third-parties":["monaco-editor"],
+    "others":["@kne-components/ued"]
   }
 }
