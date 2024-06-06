@@ -44,7 +44,9 @@
       "@kne/mini-core",
       "@kne/antd-taro"
     ],
-    "third-parties":["monaco-editor"],
+    "third-parties":[["monaco-editor",{
+      "importantVersion":["0.48.0"]
+    }]],
     "others":["@kne-components/ued"]
   }
 }
