@@ -16,7 +16,8 @@
       "@kne-components/components-ckeditor",
       "@kne-components/components-document",
       "@kne-components/components-postcat",
-      "@kne-components/components-talent-platform"
+      "@kne-components/components-talent-platform",
+      "@kne-components/email-template"
     ],
     "libs": [
       "@kne-components/remote-loader",
