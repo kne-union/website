@@ -1,0 +1,32 @@
+<pre class="hljs"><code> docker network create kong-net
+
+ docker run -d --name kong-database \
+   --network=kong-net \
+   -p 5432:5432 \
+   -e &quot;POSTGRES_USER=kong&quot; \
+   -e &quot;POSTGRES_DB=kong&quot; \
+   -e &quot;POSTGRES_PASSWORD=kongpass&quot; \
+   postgres:13
+
+docker run -d --name kong-gateway \
+ --network=kong-net \
+ -e &quot;KONG_DATABASE=postgres&quot; \
+ -e &quot;KONG_PG_HOST=kong-database&quot; \
+ -e &quot;KONG_PG_USER=kong&quot; \
+ -e &quot;KONG_PG_PASSWORD=kongpass&quot; \
+ -e &quot;KONG_PROXY_ACCESS_LOG=/dev/stdout&quot; \
+ -e &quot;KONG_ADMIN_ACCESS_LOG=/dev/stdout&quot; \
+ -e &quot;KONG_PROXY_ERROR_LOG=/dev/stderr&quot; \
+ -e &quot;KONG_ADMIN_ERROR_LOG=/dev/stderr&quot; \
+ -e &quot;KONG_ADMIN_LISTEN=0.0.0.0:8001&quot; \
+ -p 18000:8000 \
+ -p 18001:8001 \
+ kong/kong-gateway:3.7.1.2
+
+docker run -d -p 18002:1337 \
+            --network kong-net \
+            --name konga \
+            -e &quot;NODE_ENV=production&quot; \
+            -e &quot;TOKEN_SECRET=727e6193-d96b-4304-82f7-547445942936&quot; \
+            pantsel/konga
+</code></pre>

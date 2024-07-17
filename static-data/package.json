@@ -13,6 +13,7 @@
       "@kne-components/components-field",
       "@kne-components/components-view",
       "@kne-components/components-account",
+      "@kne-components/components-file-manager",
       "@kne-components/components-ckeditor",
       "@kne-components/components-document",
       "@kne-components/components-postcat",
