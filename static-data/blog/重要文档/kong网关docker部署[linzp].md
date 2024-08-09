@@ -31,3 +31,11 @@ docker run -d -p 18002:1337 \
             -e "TOKEN_SECRET=727e6193-d96b-4304-82f7-547445942936" \
             pantsel/konga
 ```
+
+* 在使用IP限制插件的时候设置用于获取ip地址的header头可以使用以下环境变量
+
+```shell
+ -e "KONG_TRUSTED_IPS=0.0.0.0/0,::/0"\
+ -e "KONG_REAL_IP_HEADER=X-Forwarded-For"\
+ -e "KONG_REAL_IP_RECURSIVE=on"\
+```

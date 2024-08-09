@@ -17,3 +17,13 @@
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
+
+# 将docker镜像打包上传
+
+```shell
+# Save 镜像
+docker save my-image > my-image.tar
+
+# 在目标机器上 Load 镜像
+docker load < my-image.tar
+```

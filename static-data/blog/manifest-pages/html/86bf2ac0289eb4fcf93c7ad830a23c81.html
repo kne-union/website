@@ -19,3 +19,10 @@
 <pre class="hljs"><code>sudo systemctl daemon-reload
 sudo systemctl restart docker
 </code></pre>
+<h1>将docker镜像打包上传</h1>
+<pre class="hljs"><code><span class="hljs-meta prompt_"># </span><span class="language-bash">Save 镜像</span>
+docker save my-image &gt; my-image.tar
+<span class="hljs-meta prompt_">
+# </span><span class="language-bash">在目标机器上 Load 镜像</span>
+docker load &lt; my-image.tar
+</code></pre>
