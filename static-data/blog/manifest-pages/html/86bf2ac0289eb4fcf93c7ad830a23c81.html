@@ -1,0 +1,21 @@
+<h1>解决国内docker镜像拉取不到的问题</h1>
+<ol>
+<li>创建文件</li>
+</ol>
+<pre class="hljs"><code>/etc/docker/daemon.json 
+</code></pre>
+<ol start="2">
+<li>写入配置</li>
+</ol>
+<pre class="hljs"><code>{
+   &quot;registry-mirrors&quot;: [
+   &quot;https://dockerpull.com&quot;
+  ]
+}
+</code></pre>
+<ol start="3">
+<li>重启docker</li>
+</ol>
+<pre class="hljs"><code>sudo systemctl daemon-reload
+sudo systemctl restart docker
+</code></pre>
