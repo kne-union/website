@@ -22,6 +22,11 @@
 ## 小小贡献
 
 在ant-design和ant-design-mobile上有一点点的小贡献。
+
+*新改的[2024.08.07]*
+![meetacoo-ant-design-colorpicker.png](assets%2Fmeetacoo-ant-design-colorpicker.png)
+---
+
 <div>
   <img title="" src="./assets/meetacoo-ant-design.png" alt="">
   <img title="" src="./assets/meetacoo-ant-design-mobile.png" alt="">
