@@ -27,6 +27,7 @@
       "@kne-components/jsonschema-form",
       "@kne-components/react-fetch",
       "@kne-components/react-org-chart",
+      "@kne-components/react-flow-chart",
       "@kne-components/use-css-variables",
       "@kne-components/use-click-outside",
       "@kne-components/use-simulation-blur",
