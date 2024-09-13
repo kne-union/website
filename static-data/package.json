@@ -24,6 +24,7 @@
       "@kne-components/remote-loader",
       "@kne-components/react-form",
       "@kne-components/react-form-antd",
+      "@kne-components/react-form-plus",
       "@kne-components/form-info",
       "@kne-components/jsonschema-form",
       "@kne-components/react-fetch",
