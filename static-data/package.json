@@ -61,7 +61,7 @@
     ],
     "third-parties":[["monaco-editor",{
       "importantVersion":["0.48.0"]
-    }]],
+    }],"@kne/iframe-resizer",["pdfjs-dist",{"importantVersion":["4.4.168"]}]],
     "others":["@kne-components/ued"]
   }
 }
