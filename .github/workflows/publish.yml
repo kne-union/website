@@ -6,6 +6,7 @@ on:
       - master
   schedule:
     - cron: "0 0 * * *"
+  workflow_dispatch:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
@@ -22,6 +23,7 @@ jobs:
           DEPLOY_URL: https://uc.fatalent.cn/packages/@kne-components/{{APP_NAME}}/{{VERSION}}/build
           APP_NAME: ued
           INDEX_HTML_PATH: ./index.html
+          OUTPUT_HTML_PATH: ./index.html
       # 部署static data
       - uses: actions/checkout@v4
         with:
