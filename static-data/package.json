@@ -18,7 +18,8 @@
       "@kne-components/components-document",
       "@kne-components/components-postcat",
       "@kne-components/components-talent-platform",
-      "@kne-components/email-template"
+      "@kne-components/email-template",
+      "@kne-components/components-thirdparty"
     ],
     "libs": [
       "@kne-components/remote-loader",
