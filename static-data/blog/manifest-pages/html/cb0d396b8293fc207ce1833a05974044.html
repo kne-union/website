@@ -1,0 +1,75 @@
+<h1>🎉 告别繁琐签名，拥抱PDF签名的快乐时代！</h1>
+<p>还在为PDF签名功能头疼吗？🤔 是不是觉得实现一个签名功能比登天还难？别担心！今天给大家推荐一个超级好用的React PDF签名组件库——<strong>@kne/react-pdf-sign</strong>，它会让你的开发体验瞬间起飞！🚀</p>
+<h2>✨ 为什么你会爱上它？</h2>
+<h3>🎨 像画画一样简单签名</h3>
+<p>还记得那些复杂的签名实现吗？现在只需要几行代码，你的用户就能像在纸上签名一样自然！手写画板支持鼠标和触摸设备，签名体验流畅得就像在真实纸上书写一样。</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> signatureModal = <span class="hljs-title function_">useSignature</span>();
+<span class="hljs-comment">// 一行代码打开签名画板！</span>
+<span class="hljs-title function_">signatureModal</span>({ <span class="hljs-attr">onSuccess</span>: <span class="hljs-function">(<span class="hljs-params">file</span>) =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;签名完成！&#x27;</span>) });
+</code></pre>
+<h3>🎯 签名位置随心所欲</h3>
+<p>拖拽、缩放、精确定位——用户的签名想放哪里就放哪里！我们的签名定位层让用户像玩拼图一样调整签名位置，支持保持比例缩放，确保每个签名都完美呈现。</p>
+<h3>📚 PDF浏览如丝般顺滑</h3>
+<p>基于强大的react-pdf，多页PDF文档浏览就像翻书一样轻松。页面切换、缩放显示，所有操作都流畅自然，用户体验满分！</p>
+<h3>🧩 组件化设计，想怎么用就怎么用</h3>
+<ul>
+<li><strong>PDFSign</strong>：一站式签名解决方案</li>
+<li><strong>PDFViewer</strong>：独立的PDF查看器</li>
+<li><strong>LocationLayer</strong>：灵活的签名定位层</li>
+<li><strong>useSignature</strong>：强大的签名Hook</li>
+</ul>
+<p>每个组件都可以独立使用，也可以组合出你想要的效果！就像乐高积木一样，自由组合，创意无限！</p>
+<h3>🌍 走向世界，语言不是问题</h3>
+<p>内置中英文语言包，国际化支持so easy！无论你的用户来自哪里，都能享受到本地化的签名体验。</p>
+<h2>🚀 快速上手，3分钟搞定签名功能</h2>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> { <span class="hljs-title class_">PDFSign</span>, useSignature } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@kne/react-pdf-sign&#x27;</span>;
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">MySignatureApp</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-keyword">const</span> [pdfFile, setPdfFile] = <span class="hljs-title function_">useState</span>(<span class="hljs-literal">null</span>);
+  <span class="hljs-keyword">const</span> [signature, setSignature] = <span class="hljs-title function_">useState</span>(<span class="hljs-literal">null</span>);
+  <span class="hljs-keyword">const</span> signatureModal = <span class="hljs-title function_">useSignature</span>();
+  <span class="hljs-keyword">const</span> pdfSignRef = <span class="hljs-title function_">useRef</span>(<span class="hljs-literal">null</span>);
+
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      {/* 上传PDF */}
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">accept</span>=<span class="hljs-string">&quot;application/pdf&quot;</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{handlePdfUpload}</span> /&gt;</span>
+      
+      {/* 创建签名 */}
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> signatureModal({ onSuccess: setSignature })}&gt;
+        创建签名
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+      
+      {/* 签名组件 */}
+      <span class="hljs-tag">&lt;<span class="hljs-name">PDFSign</span> <span class="hljs-attr">url</span>=<span class="hljs-string">{pdfFile}</span> <span class="hljs-attr">signature</span>=<span class="hljs-string">{signature}</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">{pdfSignRef}</span> /&gt;</span>
+      
+      {/* 生成签名PDF */}
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{async</span> () =&gt;</span> {
+        const signedPdf = await pdfSignRef.current.sign();
+        // 下载签名文件
+      }}&gt;
+        下载签名PDF
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+};
+</code></pre>
+<p>就这么简单！你的签名功能已经ready了！🎊</p>
+<h2>💪 真实场景，实力说话</h2>
+<h3>📝 合同签署系统</h3>
+<p>想象一下，用户上传合同，手写签名，一键生成带签名的PDF文件——整个流程行云流水，专业又高效！</p>
+<h3>✅ 文档审批流程</h3>
+<p>从上传文档到各级领导签名，再到最终归档，每个环节都清晰可控，审批从未如此轻松！</p>
+<h3>🏆 证书颁发系统</h3>
+<p>培训证书、荣誉证书，批量签名不再是噩梦！每个证书都能精准定位签名位置，效果完美！</p>
+<h2>🎬 立即开始你的签名之旅</h2>
+<p>还在等什么？赶紧npm安装体验吧！</p>
+<pre class="hljs"><code>npm install @kne/react-pdf-sign
+</code></pre>
+<p>访问我们的GitHub仓库，查看更多示例和文档：
+<a href="https://github.com/kne-union/react-pdf-sign">https://github.com/kne-union/react-pdf-sign</a></p>
+<h2>🎊 结语</h2>
+<p>签名功能本该如此简单！@kne/react-pdf-sign不仅解决了技术难题，更带来了愉悦的开发体验。让我们一起告别繁琐，拥抱简单高效的签名时代！</p>
+<p><strong>记住：好的工具让开发变成一种享受！</strong> 🎈</p>
+<hr />
+<p><em>喜欢这个组件库吗？别忘了给我们一个⭐️你的支持是我们前进的动力！</em></p>
