@@ -1,0 +1,2 @@
+"use strict";(globalThis.webpackChunk_kne_components_ued=globalThis.webpackChunk_kne_components_ued||[]).push([[240],{7240(n,e,t){t.r(e),t.d(e,{default:()=>u});const u=function(){for(var n=arguments.length,e=new Array(n),t=0;t<n;t++)e[t]=arguments[t];return 0===e.length?function(n){return n}:1===e.length?e[0]:e.reduce(function(n,e){return function(){return n(e.apply(void 0,arguments))}})}}}]);
+//# sourceMappingURL=240.4e9d2091.chunk.js.map

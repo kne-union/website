@@ -1,0 +1,2 @@
+"use strict";(globalThis.webpackChunk_kne_components_ued=globalThis.webpackChunk_kne_components_ued||[]).push([[126],{2126(e,o,t){t.r(o),t.d(o,{default:()=>a});var s=t(3050),n=t(579);const a=(0,s.createWithRemoteLoader)({modules:["components-postcat:PostCatLocal"]})(e=>{let{remoteModules:o,...t}=e;const[s]=o;return(0,n.jsx)(s,{...t})})}}]);
+//# sourceMappingURL=126.9a8f8495.chunk.js.map
