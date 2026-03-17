@@ -9,17 +9,14 @@
           "maxLength": 10
         }
       ],
+      "@kne-components/components-admin",
       "@kne-components/components-iconfont",
+      "@kne-components/components-thirdparty",
       "@kne-components/components-field",
       "@kne-components/components-view",
-      "@kne-components/components-account",
       "@kne-components/components-file-manager",
-      "@kne-components/components-ckeditor",
       "@kne-components/components-document",
-      "@kne-components/components-postcat",
-      "@kne-components/components-talent-platform",
-      "@kne-components/email-template",
-      "@kne-components/components-thirdparty"
+      "@kne-components/email-template"
     ],
     "libs": [
       "@kne-components/remote-loader",
